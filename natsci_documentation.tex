@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{natsci}
+\setdefaultlanguage[variant=british]{english}
+\usepackage{hologo} % For LaTeX and other logos
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\title{\texttt{natsci} --- A (meta)package for typesetting science and mathematics}
+\author{Adam Přáda}
+\date{2020-10-26}
+\begin{document}
+\maketitle
+\begin{abstract}
+    \noindent
+    For a very long time, all my documents were separate and used directly standard packages from \TeX{} Live. However, this resulted in inconsistent headers of my files and infinite searching for the correct packages. This package aims to load all the universally useful packages and define a few useful macros.
+\end{abstract}
+\section{Overview of macros}
+It is better to typeset semantically, such that the graphical form can be easily changed later globally. For some objects, like decimal numbers, units and derivatives, there are very good packages available. The \texttt{physics} package is intentionally avoided, because it is known to cause many problems. If needed, it can be loaded in individual documents. However, for their widespread use, some simple macros are defined:
+\begin{verbatim}
+    \vc{v}   # Vector = bold italic
+    \mat{A}  # Matrix/tensor = sans-serif italic
+    \ud      # Differential operator = upright d
+    \uDelta  # Difference operator = upright capital Greek delta
+    \ui      # Imaginary unit = upright i
+    \ue      # Euler's number = upright e
+    \upi     # The pi constant (Achimedes' number) = upright small Greek pi
+    \transp  # Transposed symbol = Upright sans-serif capital T
+    \std     # Standard conditions symbol = circle with horizontal bar
+\end{verbatim}
+\newpage
+\section{Overview of packages}
+The \texttt{natsci} package loads the following packages. For more details about them, see their documentation on \url{https://ctan.org/}.
+\subsection{Font packages}
+\subsubsection{\texttt{fontspec}}
+The package uses \hologo{XeLaTeX}, since Unicode and OpenType font support is almost a necessity. The fonts are selected using the \texttt{fontspec} package. By default, the \TeX{} ligature option is enabled for easier typesetting of hyphens etc., and contextual alternates are enabled to make use of ligatures or alternate glyphs depending on the context.
+\subsubsection{\texttt{ucharclasses}}
+There is not a single font covering the whole of unicode. This package automatically switches fonts for different unicode blocks.
+\subsubsection{\texttt{polyglossia}}
+Allows to choose or to switch between languages in the document while making adjustments to the typesetting conventions and translating elements. Option \texttt{babelshorthands} is loaded to allow, e.g.\ simpler 
+\subsubsection{\texttt{unicode-math}}
+Unicode fonts for mathematics, while defining a huge set of macros for mathematical symbols. For the list of these symbols, see the \textsc{pdf} \href{http://mirrors.ctan.org/macros/unicodetex/latex/unicode-math/unimath-symbols.pdf}{\textcolor{red}{here}} or on \url{https://ctan.org/pkg/unicode-math}. The option \texttt{math-style=ISO} is loaded to follow the \textsc{iso} standard (i.e.\ by default all letters, Latin or Greek, lower or upper case, are assumed to be variables and typeset in italics.)
+
+
+
+\subsection{Graphics and figures packages}
+\subsubsection{\texttt{geometry}}
+Customizing page layout (page size, orientation, margins)
+\subsubsection{\texttt{graphicx}}
+Including images  in the document.
+\subsubsection{\texttt{xcolor}}
+Work with colours in the document.
+\subsubsection{\texttt{tikz}}
+A powerful package for \LaTeX-native graphics. Can be clumsy to write commands by hand, but software can be used to generate it.
+\subsubsection{\texttt{float}}
+Gives more control over floats (e.g.\ \texttt{figure}, \texttt{table}). Importantly defines the \texttt{H} value for the position argument of floats, which forces the float to be displayed exactly, where it is in the code.
+\subsubsection{\texttt{booktabs}}
+Nicer typesetting of tables.
+\subsubsection{\texttt{multirow}}
+Vertical merging of cells in tables.
+
+\subsection{Typesetting packages}
+\subsubsection{\texttt{microtype}}
+Makes automatic typographic refinements.
+\subsubsection{\texttt{ragged2e}}
+Allows flushing text left and right while allowing hyphenation.
+\subsubsection{\texttt{multicol}}
+Kulti-column documents
+\subsubsection{\texttt{fancyhdr}}
+Commands for headers and footers
+\subsubsection{\texttt{enumitem}}
+Greater customisation of the \texttt{enumerate} and \texttt{itemize} commands.
+\subsubsection{\texttt{extdash}}
+With option \texttt{shortcuts}. Allow typing non-breaking hyphens.
+
+\subsection{Special function packages}
+\subsubsection{\texttt{hyperref}}
+Allows links within the document (e.g.\ for references and the table of contents) as well as links outside (e.g.\ to a website). Option \texttt{hidelinks} is used, otherwise the links are highlighted in the \textsc{pdf}.
+\subsubsection{\texttt{doi}}
+Creates correct hyperlinks from \textsc{doi}.
+
+\subsection{Scientific packages}
+\subsubsection{\texttt{amsmath}}
+Advanced commands for typesetting mathematical expressions by the American Mathematical Society.
+\subsubsection{\texttt{amsthm}}
+Commands for typesetting theorems etc.\ by the American Mathematical Society.
+\subsubsection{\texttt{mathtools}}
+Extension of \texttt{amsmath} e.g.\ cases in display mode, creation of new tag forms.
+\subsubsection{Not \texttt{amssymb}}
+This package would define additional symbols, but they are already covered by the \texttt{unicode-math} package.
+\subsubsection{\texttt{siunitx}}
+Typesetting of decimal number with units.
+\subsubsection{\texttt{diffcoeff}}
+Commands for typesetting derivatives. Loaded with options to typeset upright differentials as per \textsc{iupac}, \textsc{iupap} and \textsc{iso} standards.
+\subsubsection{\texttt{chemmacros}}
+A large metapackage for typesetting chemistry, Loaded with options for dotted electron pairs and top labelling of oxidation states.
+\end{document}

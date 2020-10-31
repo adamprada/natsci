@@ -1,0 +1,80 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{natsci}[2020/09/20 Natural Sciences Typesetting]
+%*******************************************************************************
+% Fonts
+%*******************************************************************************
+\RequirePackage{fontspec}
+%\defaultfontfeatures{Ligatures=TeX,Numbers=OldStyle,Contextuals=Alternate}
+\defaultfontfeatures{Ligatures=TeX,Contextuals=Alternate}
+\RequirePackage{ucharclasses}
+\RequirePackage[babelshorthands]{polyglossia}
+\RequirePackage[math-style=ISO]{unicode-math}
+%*******************************************************************************
+% Mathematical typesetting macros
+%*******************************************************************************
+\newcommand{\vc}[1]{\symbf{#1}}
+\newcommand{\mat}[1]{\symbfsfit{#1}}
+\newcommand{\ud}{\ensuremath{\symup{d}}}
+\newcommand{\uDelta}{\ensuremath{\symup{\Delta}}}
+\newcommand{\ui}{\ensuremath{\symup{i}}}
+\newcommand{\ue}{\ensuremath{\symup{e}}}
+\newcommand{\upi}{\ensuremath{\symup{\pi}}}
+\newcommand{\transp}{\ensuremath{{\symsfup{T}}}}
+\newcommand{\std}{{\ensuremath{\circlehbar}}}
+%*******************************************************************************
+% Footnotes (currently unused)
+%*******************************************************************************
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\renewcommand{\thefootnote}{(\roman{footnote})}
+
+%\RequirePackage{manyfoot}
+% Correction for hyperlinks for manyfoot footnotes
+%\RequirePackage{etoolbox}
+%\makeatletter
+%\newcommand\manyfoottarget{\makebox[0pt][r]{\hypertarget{Hfootnote.\theHfootnote}\quad}}
+%\patchcmd\MFL@fnoteplain{\rule}{\manyfoottarget\rule}{}{\fail}
+%makeatother
+%\DeclareNewFootnote{A}[fnsymbol]
+
+%\RequirePackage{perpage}
+%\MakePerPage{footnoteA}
+%*******************************************************************************
+% General LaTeX packages
+%*******************************************************************************
+\RequirePackage{geometry} % Page geometry
+\RequirePackage{graphicx} % Inserting graphics
+\RequirePackage{xcolor} % Using colour
+\RequirePackage{microtype} % Correcting minor typesetting errors
+\RequirePackage{ragged2e} % Better left and right alignment
+\RequirePackage{multicol} % Multi-column documents
+\RequirePackage{fancyhdr} % Headers and footers
+%*******************************************************************************
+% Packages for specific elements
+%*******************************************************************************
+\RequirePackage[hidelinks]{hyperref} % Links in the PDF
+%\RequirePackage{footnotebackref}
+\RequirePackage{doi} % Automatic DOI typesetting
+\RequirePackage{tikz}
+\RequirePackage{enumitem} % Better enumerations and itemizations
+\RequirePackage{booktabs} % Nicer tables
+\RequirePackage{multirow} % Tables with cells across rows
+\RequirePackage{float} % More control over floats
+%\floatplacement{figure}{H} % Make all figures automaticaly printed where they are in the code.
+\RequirePackage[shortcuts]{extdash} % Non-breaking hyphens
+%*******************************************************************************
+% STEM LaTeX packages
+%*******************************************************************************
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{siunitx}
+\RequirePackage{diffcoeff}
+\diffdef {}{
+    op-symbol    = \mathrm{d},
+    op-order-sep = 0 mu
+}
+\usepackage{chemmacros}
+\chemsetup{formula=chemformula}
+\chemsetup{modules=all}
+\chemsetup[particles]{elpair=dots}
+\chemsetup[redox]{pos=top}
