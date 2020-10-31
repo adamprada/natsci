@@ -8,7 +8,14 @@
 \defaultfontfeatures{Ligatures=TeX,Contextuals=Alternate}
 \RequirePackage{ucharclasses}
 \RequirePackage[babelshorthands]{polyglossia}
+%*******************************************************************************
+% Mathematics packages
+%*******************************************************************************
+\RequirePackage{amsmath}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
 \RequirePackage[math-style=ISO]{unicode-math}
+% it is better if unicode-math is loaded after amsmath and mathtools
 %*******************************************************************************
 % Mathematical typesetting macros
 %*******************************************************************************
@@ -64,9 +71,6 @@
 %*******************************************************************************
 % STEM LaTeX packages
 %*******************************************************************************
-\RequirePackage{amsmath}
-\RequirePackage{amsthm}
-\RequirePackage{mathtools}
 \RequirePackage{siunitx}
 \RequirePackage{diffcoeff}
 \diffdef {}{
