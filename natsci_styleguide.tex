@@ -39,7 +39,7 @@
 %*******************************************************************************
 % Title page
 %*******************************************************************************
-\title{\texttt{natsci} --- Package style guide}
+\title{\vspace{-2cm}\texttt{natsci} --- Package style guide}
 \author{Adam Přáda}
 \date{2020-10-26}
 \usepackage[backend=biber,style=chem-rsc,doi=true]{biblatex}
@@ -69,10 +69,12 @@ Different styles of text are \textbf{bold}, \textit{italics}, \emph{emphasised} 
 \subsection{Escaping characters}
 There are some characters that have meaning in \hologo{LaTeX} and have to be ``escaped'' when you actually want to display them. These are \&, \%, \$, \#, \_, \{, \}, \textasciitilde{}, \textasciicircum{}, \textbackslash{}. The empty curly braces are not necessary, but prevent disappearence of spaces that follow them. (If you don't want a space after them, you can omit the braces.)
 
+\subsection{Unicode characters}
+The package uses \hologo{XeLaTeX}, which can directly typeset the whole of Unicode. However, the characters need to be supported by the font, and there is not a single font that would cover the whole of Unicode. This means that one would have to manually switch fonts if characters outside of the body font are needed. This can be done automatically for predefined Unicode ranges using the \texttt{ucharclasses} package, as demonstrated for the Han characters (漢字) in the header of this file.
 \newpage
 
 \subsection{Unicode abbreviations}
-The package uses \hologo{XeLaTeX}, which can directly typeset the whole of Unicode. However, there are some characters that have shorthands consisting of \textsc{ascii} characters. These are more explicit and easier to type than the actual Unicode characters, which is why we shall use them.
+There are some Unicode characters that have \TeX{} shorthands consisting of \textsc{ascii} characters. These are more explicit and easier to type than the actual Unicode characters, which is why we shall use them.
 
 \paragraph{Space sizes.} There are different sizes of spaces in typesetting which are represented by different characters in Unicode. \hologo{LaTeX} automatically inserts a larger space following a full stop. This is appropriate following a sentence, but not for other uses of full stop, e.g.\ in abbreviations. There, the space should be escaped using a backslash, which achieves a normal sized space.
 \\

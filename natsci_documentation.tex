@@ -44,6 +44,8 @@ Unicode fonts for mathematics, while defining a huge set of macros for mathemati
 \subsection{Graphics and figures packages}
 \subsubsection{\texttt{geometry}}
 Customizing page layout (page size, orientation, margins)
+\subsubsection{\texttt{pdflscape}}
+Defines the environment \texttt{landscape}, inside which the content is typeset in the landscape orientation \emph{and} the page is appropriately rotated in the PDF.
 \subsubsection{\texttt{graphicx}}
 Including images  in the document.
 \subsubsection{\texttt{xcolor}}
@@ -56,14 +58,18 @@ Gives more control over floats (e.g.\ \texttt{figure}, \texttt{table}). Importan
 Nicer typesetting of tables.
 \subsubsection{\texttt{multirow}}
 Vertical merging of cells in tables.
+\subsubsection{\texttt{caption} and \texttt{subcaption}}
+Allow more options for cations and subcaptions of figures and other float elements.
 
 \subsection{Typesetting packages}
+\subsubsection{\texttt{setspace}}
+Provides support for setting the spacing between lines in a document. Package options include singlespacing, onehalfspacing, and doublespacing. Alternatively the spacing can be changed as required with the \texttt{singlespacing}, \texttt{onehalfspacing}, and \texttt{doublespacing} commands. Other size spacings also available.
 \subsubsection{\texttt{microtype}}
 Makes automatic typographic refinements.
 \subsubsection{\texttt{ragged2e}}
 Allows flushing text left and right while allowing hyphenation.
 \subsubsection{\texttt{multicol}}
-Kulti-column documents
+Multi-column documents
 \subsubsection{\texttt{fancyhdr}}
 Commands for headers and footers
 \subsubsection{\texttt{enumitem}}
@@ -76,6 +82,8 @@ With option \texttt{shortcuts}. Allow typing non-breaking hyphens.
 Allows links within the document (e.g.\ for references and the table of contents) as well as links outside (e.g.\ to a website). Option \texttt{hidelinks} is used, otherwise the links are highlighted in the \textsc{pdf}.
 \subsubsection{\texttt{doi}}
 Creates correct hyperlinks from \textsc{doi}.
+\subsubsection{\texttt{todonotes}}
+Creates comments and notes.
 
 \subsection{Scientific packages}
 \subsubsection{\texttt{amsmath}}

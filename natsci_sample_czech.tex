@@ -1,0 +1,91 @@
+\documentclass[11pt]{article}
+\usepackage{natsci}
+%*******************************************************************************
+% polyglossia settings
+%*******************************************************************************
+\setdefaultlanguage{czech}
+\setotherlanguage[variant=british]{english}
+%*******************************************************************************
+% fontspec settings
+%*******************************************************************************
+\setmainfont{Latin Modern Roman}[SmallCapsFont={Latin Modern Roman Caps}]
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+\newfontfamily{\cjkfont}{Noto Serif CJK SC}
+%*******************************************************************************
+% ucharclasses settings
+%*******************************************************************************
+\setTransitionsForCJK{\begingroup\cjkfont}{\endgroup}
+%*******************************************************************************
+% unicode-math settings
+%*******************************************************************************
+\setmathfont{Latin Modern Math}
+\setmathfont{STIX Two Math}[range={"29B5}] % Taking the "standard symbol" (\circlehbar) from STIX Two Math
+%*******************************************************************************
+% geometry settings
+%*******************************************************************************
+\geometry{a4paper}
+\geometry{margin=2cm}
+\geometry{top=3cm}
+\geometry{bottom=3cm}
+%*******************************************************************************
+% graphicx settings
+%*******************************************************************************
+\graphicspath{ {figures/} }
+%*******************************************************************************
+% fancyhdr settings
+%*******************************************************************************
+\pagestyle{fancy} % Make pages fancy
+\fancyhf{}
+\fancyhead[L]{\texttt{natsci} --- Sample document --- Czech}
+\fancyfoot[R]{\thepage}
+%*******************************************************************************
+% Changing footnotes to symbols to avoid confusion with superscript references
+%*******************************************************************************
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%*******************************************************************************
+% Setting paragraph indents and skips
+%*******************************************************************************
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+%*******************************************************************************
+% siunitx settings
+%*******************************************************************************
+\sisetup{
+    output-decimal-marker = {,},
+    exponent-product = \ensuremath{{}\cdot{}},
+    % Spaces between units
+    inter-unit-product = {\,}
+    % Dots between units
+    %inter-unit-product = {\ensuremath{{}\cdot{}}}
+}
+%*******************************************************************************
+% biblatex settings
+%*******************************************************************************
+\usepackage[backend=biber,style=chem-rsc,doi=true,isbn=true]{biblatex}
+\addbibresource{library.bib}
+\DefineBibliographyStrings{czech}{% Renaming Odkazy to Použité zdroje
+    bibliography = {Použité zdroje},
+    references = {Použité zdroje},
+}
+%*******************************************************************************
+% Title page
+%*******************************************************************************
+\title{\texttt{natsci} --- Sample document --- Czech}
+\author{Adam Přáda}
+\date{2020-10-26}
+\begin{document}
+    \pagestyle{fancy}
+    \maketitle
+    This document shows a typical header for an Czech document using the \texttt{natsci} package.
+    
+    Tento dokument ukazuje, jak by mohla vypadat typická hlavička česky psaného dokumentu.
+    
+    \section{My section}
+    Section text.
+    \subsection{My subsection}
+    Subsection text.
+    \newpage
+    As citation commands, one can use either superscripts, which is mainly when the reference is not explicitly a part of the sentence.\supercite{cit1} Alternatively, you can mention them in sentence, like ref \cite{cit2}.
+    \printbibliography
+\end{document}
