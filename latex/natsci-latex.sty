@@ -1,33 +1,32 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{natsci}[2020/09/20 Natural Sciences Typesetting]
+\ProvidesPackage{natsci-latex}[2020/09/20 Natural Sciences Typesetting]
 %*******************************************************************************
 % Fonts
 %*******************************************************************************
-\RequirePackage{fontspec}
-%\defaultfontfeatures{Ligatures=TeX,Numbers=OldStyle,Contextuals=Alternate}
-\defaultfontfeatures{Ligatures=TeX,Contextuals=Alternate}
-\RequirePackage{ucharclasses}
-\RequirePackage[babelshorthands]{polyglossia}
+\RequirePackage[utf8]{inputenc}
+% Using the T1 for font encoding ensures better non-ASCII chracters (as opposed to old OT1)
+\RequirePackage[T1]{fontenc}
 %*******************************************************************************
 % Mathematics packages
 %*******************************************************************************
 \RequirePackage{amsmath}
 \RequirePackage{amsthm}
 \RequirePackage{mathtools}
-\RequirePackage[math-style=ISO]{unicode-math}
+\RequirePackage{bm}
 % it is better if unicode-math is loaded after amsmath and mathtools
 %*******************************************************************************
 % Mathematical typesetting macros
 %*******************************************************************************
-\newcommand{\vc}[1]{\symbf{#1}}
-\newcommand{\mat}[1]{\symbfsfit{#1}}
-\newcommand{\ud}{\ensuremath{\symup{d}}}
-\newcommand{\uDelta}{\ensuremath{\symup{\Delta}}}
-\newcommand{\ui}{\ensuremath{\symup{i}}}
-\newcommand{\ue}{\ensuremath{\symup{e}}}
-\newcommand{\upi}{\ensuremath{\symup{\pi}}}
-\newcommand{\transp}{\ensuremath{{\symsfup{T}}}}
-\newcommand{\std}{{\ensuremath{\circlehbar}}}
+\newcommand{\vc}[1]{\bm{#1}}
+\DeclareMathAlphabet{\mathsfit}{T1}{\sfdefault}{\mddefault}{\sldefault}
+\SetMathAlphabet{\mathsfit}{bold}{T1}{\sfdefault}{\bfdefault}{\sldefault}
+\newcommand{\mat}[1]{\mathsfit{#1}}
+\newcommand{\ud}{\ensuremath{\mathrm{d}}}
+\newcommand{\uDelta}{\ensuremath{\Delta}}
+\newcommand{\ui}{\ensuremath{\mathrm{i}}}
+\newcommand{\ue}{\ensuremath{\mathrm{e}}}
+\newcommand{\upi}{\ensuremath{\mathrm{\pi}}}
+\newcommand{\transp}{\ensuremath{{\mathsf{T}}}}
 %*******************************************************************************
 % Footnotes (currently unused)
 %*******************************************************************************
@@ -79,7 +78,7 @@
 \RequirePackage{siunitx}
 \RequirePackage{diffcoeff}
 \diffdef {}{
-    op-symbol    = \symup{d},
+    op-symbol    = \mathrm{d},
     op-order-sep = 0 mu
 }
 \RequirePackage{chemmacros}
