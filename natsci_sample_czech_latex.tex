@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage{natsci-latex}
+\usepackage{natsci}
 %*******************************************************************************
 % Loading a font package
 %*******************************************************************************
@@ -20,7 +20,7 @@
 %*******************************************************************************
 \pagestyle{fancy} % Make pages fancy
 \fancyhf{}
-\fancyhead[L]{\texttt{natsci-latex} --- Sample document --- English}
+\fancyhead[L]{\texttt{natsci-latex} --- Sample document --- Czech}
 \fancyfoot[R]{\thepage}
 %*******************************************************************************
 % Changing footnotes to symbols to avoid confusion with superscript references
@@ -35,29 +35,38 @@
 % siunitx settings
 %*******************************************************************************
 \sisetup{
-    output-decimal-marker = {.},
-    exponent-product = \ensuremath{{}\times{}},
+    output-decimal-marker = {,},
+    exponent-product = \ensuremath{{}\cdot{}},
+    % Spaces between units
     inter-unit-product = {\,}
+    % Dots between units
+    %inter-unit-product = {\ensuremath{{}\cdot{}}}
 }
 %*******************************************************************************
 % biblatex settings
 %*******************************************************************************
 \usepackage[backend=biber,style=chem-rsc,doi=true,isbn=true]{biblatex}
 \addbibresource{../library.bib}
+\DefineBibliographyStrings{czech}{% Renaming Odkazy to Použité zdroje
+    bibliography = {Použité zdroje},
+    references = {Použité zdroje},
+}
 %*******************************************************************************
 % Babel
 %*******************************************************************************
-\usepackage[english]{babel} % Note that because of a bug, Babel should be loaded after biblatex
+\usepackage[czech]{babel} % Note that because of a bug, Babel must be loaded after biblatex
 %*******************************************************************************
 % Title page
 %*******************************************************************************
-\title{\texttt{natsci-latex} --- Sample document --- English}
+\title{\texttt{natsci-latex} --- Sample document --- Czech}
 \author{Adam Přáda}
 \date{2020-10-26}
 \begin{document}
     \pagestyle{fancy}
     \maketitle
-    This document shows a typical header for an English document using the \texttt{natsci} package.
+    This document shows a typical header for an Czech document using the \texttt{natsci} package.
+    
+    Tento dokument ukazuje, jak by mohla vypadat typická hlavička česky psaného dokumentu.
     
     \section{My section}
     Section text.
