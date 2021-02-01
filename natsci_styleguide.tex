@@ -39,7 +39,7 @@
 %*******************************************************************************
 % Title page
 %*******************************************************************************
-\title{\vspace{-2cm}\texttt{natsci} --- Package style guide}
+\title{\vspace{-2cm}\texttt{natsci} --- Science notation style guide}
 \author{Adam Přáda}
 \date{2020-10-26}
 \usepackage[backend=biber,style=chem-rsc,doi=true]{biblatex}
@@ -137,7 +137,7 @@ Matrix/tensor variables are typeset in bold sans-serif font. For these the comma
 \]
 \paragraph{Non-variables} All other objects, like operators, labels, abbreviations, function names or units, must be typed upright. This also applies to mathematical constants that are usually denoted by letters, like e (Euler's number), i (imaginary unit), \upi (circumference of a circle of a unit diameter). Basic functions, like trigs and logs have their own commands. For labels or phrases, \texttt{text} command is used. For differentials d, e, i and \upi, new commands were defined for their upright versions \texttt{ue, ud, ui, upi}. Similarly, the difference, the upright capital delta is used \uDelta, which has been assigned the macro \texttt{uDelta}. For derivatives, the package \texttt{diffcoeff} provides a simpler notation than explicitly writing fractions. See examples below.
 \[
-\sin x, \ln \uDelta H_\text{fus}^\std,\int \ud x, \ue^{\ui \upi}, \mat{A}^\transp, \diff{f(x)}{x}, \diff[3]{f}{x}[x=0], \diffp[3]{f(x,y)}{x}[y]
+\sin x, \ln \uDelta H_\mathrm{fus}^\std,\int \ud x, \ue^{\ui \upi}, \mat{A}^\transp, \diff{f(x)}{x}, \diff[3]{f}{x}[x=0], \diffp[3]{f(x,y)}{x}[y]
 \]
 Also note the standard state symbol $\circlehbar$, which has been assigned the \texttt{std} macro.
 
@@ -168,10 +168,10 @@ Also note the standard state symbol $\circlehbar$, which has been assigned the \
     &\symbfsfit{a A \xi \Xi} \\
 \end{align*}
 
-\paragraph{Units and decimal numbers}For the formating of numerical values and units, the package \texttt{siunitx} is used. The main advantage is the ability to globally change the decimal separator between dot and comma, or the way units are typeset. This can be used e,g,\ in making of different language versions. Therefore, all decimal numbers and numbers with units should be typeset as follows:
+\paragraph{Units and decimal numbers}For the formating of numerical values and units, the package \texttt{siunitx} is used. The main advantage is the ability to globally change the decimal separator between dot and comma, or the way units are typeset. This can be used e.g.\ in making of different language versions. Therefore, all decimal numbers and numbers with units should be typeset as follows:
 \begin{align*}
 &\num{12345,67890}                                 &
-&\num[output-decimal-marker = {,}]{12345,67890}    &
+&\num[output-decimal-marker = {,}]{12345.67890}    &
 &\num{1+-2i}                                       \\
 &\num{0.3e45}                                      &
 &\num[exponent-product = \ensuremath{{}\cdot{}}]{0.3e45}            &
@@ -183,17 +183,29 @@ Also note the standard state symbol $\circlehbar$, which has been assigned the \
 &\SI{10}{\degreeCelsius}                           &
 &\SI{1525.3}{\kJ\per\mol}                          \\
 &\SI{15.3}{\joule\per\mole\per\kelvin}             &
-&\SI[inter-unit-product = \ensuremath{{}\cdot{}}]{15.3}{\J\mol\K} &
+&\SI[inter-unit-product = \ensuremath{{}\cdot{}}]{15.3}{\J\mol^{-1}\K^{-1}} &
 &\SI{1525.3}{kJ.mol^{-1}}                          \\
 &\ang{4,5}                                         &
 &\ang{1;2;3}                                       &
 \end{align*}
 Note that the units are correctly typeset in upright font with a non-breaking space between the number and the unit. It does not matter whether decimal comma or dot is used in the source code, the output will follow the package setting. Units can be either selected by typing their abbreviations separated by dots with explicit powers, or by specific commands as demonstrate above.
+\begin{table}[]
+    \caption{Multiplication symbols recommended by different authorities}
+    \begin{tabularx}{\textwidth}{|L|C|C|C|C|C|}
+        \hline
+        & \textbf{ISO}                                    & \textbf{SI (BIPM)}                     & \textbf{IUPAP}                  & \textbf{IUPAC}                         & \textbf{NIST}                          \\ \hline
+        \textbf{letter symbols}             & nothing, space, $\cdot$, $\times$, $/$          & nothing, space, $\cdot$, $\times$, $/$ & nothing,\newline $\cdot$, $\times$, $/$ & nothing, space, $\cdot$, $\times$, $/$ & nothing, space, $\cdot$, $\times$, $/$ \\ \hline
+        \textbf{numbers with decimal dots}  & $\times$                                        & $\times$                               & $\times$                        & ? (uses $\times$)                      & $\times$                               \\ \hline
+        \textbf{numbers with decimal comas} & $\times$, $\cdot$                               & $\times$                               & $\times$, $\cdot$               & ? (uses $\times$)                      & $\times$, $\cdot$                      \\ \hline
+        \textbf{units}                      & space, $\cdot$, $/$, nothing (when unambiguous) & space, $\cdot$, $/$                    & space, $\cdot$, $/$             & space, $\cdot$, $/$                    & space, $\cdot$, $/$                    \\ \hline
+        \textbf{notes}                               & cannot do $a \times b^{-1}$ for any of above    &                                        &                                 &                                        &                                        \\ \hline
+    \end{tabularx}
+\end{table}
 
 \section{Chemistry typesetting}
 The package used is \texttt{chemmacros}. Chemical formulas are then enclosed in the \texttt{ch} command, like this \ch{H2O}. This works also in the math mode like in
 \[
-\uDelta G_\text{fus}^\std(\ch{H2O}).
+\uDelta G_\mathrm{fus}^\std(\ch{H2O}).
 \]
 Alternatively, for full reactions, one can use the \texttt{reaction} and \texttt{reaction*} environments. (* again to avoid numbering)
 \begin{reaction*}
