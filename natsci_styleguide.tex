@@ -14,6 +14,7 @@
 \newfontfamily{\latinmodernmath}{Latin Modern Math}
 \newfontfamily{\cjkfont}{Noto Serif CJK SC}
 \setmainfont{Latin Modern Roman}[SmallCapsFont={Latin Modern Roman Caps}]
+\setromanfont{Latin Modern Roman}[SmallCapsFont={Latin Modern Roman Caps}]
 \setsansfont{Latin Modern Sans}
 \setmonofont{Latin Modern Mono}
 %*******************************************************************************
@@ -64,7 +65,7 @@ are treated only as spaces. The number of spaces                            betw
 
 However, a completely empty line signifies a new paragraph. Note that it must be completely empty (may contain only spaces). Any comments or commands count as non-empty. \par Alternatively, a new paragraph can be created by a command, but that is usually not necessary. Sometimes\\ you want a line break without a new paragraph. That is done using two backslashes.
 
-Different styles of text are \textbf{bold}, \textit{italics}, \emph{emphasised} (usually italics, but can be globally changed), \textbf{\textit{bold italics}}.
+Different styles of text are \textrm{roman (upright)}, \textbf{bold}, \textit{italics}, \emph{emphasised} (usually italics, but can be globally changed), \textbf{\textit{bold italics}}, \textsf{sans-serif}, \textsf{\textbf{sans-serif bold}}, \textsf{\textit{sans-serif italics (oblique)}}, \texttt{mono-spaced}, \texttt{\textbf{mono-spaced bold}}, \texttt{\textit{mono-spaced italic}}.
 
 \subsection{Escaping characters}
 There are some characters that have meaning in \hologo{LaTeX} and have to be ``escaped'' when you actually want to display them. These are \&, \%, \$, \#, \_, \{, \}, \textasciitilde{}, \textasciicircum{}, \textbackslash{}. The empty curly braces are not necessary, but prevent disappearence of spaces that follow them. (If you don't want a space after them, you can omit the braces.)
@@ -125,7 +126,7 @@ The document uses \texttt{unicode-math}, which means that you can type mathemati
 
 \paragraph{Variables} All variables are typeset in \textit{italics/slanted/oblique}. This includes fundamental constants that do not vary. (We can imagine a hypothetical situation when they do.)
 \[
-x, y, i, j, e\ (\text{elementary charge}), c\ (\text{the speed of light})
+x, y, i, j, e\ (\textrm{elementary charge}), c\ (\textrm{the speed of light})
 \]
 Vector variables are typeset in \textbf{\textit{bold italics}}. (They are still variables.) For this, use the \texttt{vc} command.
 \[
@@ -135,11 +136,6 @@ Matrix/tensor variables are typeset in bold sans-serif font. For these the comma
 \[
 \vc{c}^\transp \mat{H} \vc{c} = E
 \]
-\paragraph{Non-variables} All other objects, like operators, labels, abbreviations, function names or units, must be typed upright. This also applies to mathematical constants that are usually denoted by letters, like e (Euler's number), i (imaginary unit), \upi (circumference of a circle of a unit diameter). Basic functions, like trigs and logs have their own commands. For labels or phrases, \texttt{text} command is used. For differentials d, e, i and \upi, new commands were defined for their upright versions \texttt{ue, ud, ui, upi}. Similarly, the difference, the upright capital delta is used \uDelta, which has been assigned the macro \texttt{uDelta}. For derivatives, the package \texttt{diffcoeff} provides a simpler notation than explicitly writing fractions. See examples below.
-\[
-\sin x, \ln \uDelta H_\mathrm{fus}^\std,\int \ud x, \ue^{\ui \upi}, \mat{A}^\transp, \diff{f(x)}{x}, \diff[3]{f}{x}[x=0], \diffp[3]{f(x,y)}{x}[y]
-\]
-Also note the standard state symbol $\circlehbar$, which has been assigned the \texttt{std} macro.
 
 \paragraph{Mathmatical alphabets} If you want a more direct control, below is the list of all the mathematical alphabets that exist in Unicode. (These commands can also be used without the curly braces, in which case they apply to the next symbol, like this $\symcal L$. However, with curly braces it is more explicit what you mean.)
 \begin{align*}
@@ -167,6 +163,32 @@ Also note the standard state symbol $\circlehbar$, which has been assigned the \
     &\symsfit{a A \xi \Xi}    &
     &\symbfsfit{a A \xi \Xi} \\
 \end{align*}
+
+\paragraph{Non-variables} All other objects, like operators, labels, abbreviations, function names or units, must be typed upright. This also applies to mathematical constants that are usually denoted by letters, like e (Euler's number), i (imaginary unit), \upi (circumference of a circle of a unit diameter). Basic functions, like trigs and logs have their own commands. For differentials d, e, i and \upi, new commands were defined for their upright versions \texttt{ue, ud, ui, upi}. Similarly, the difference, the upright capital delta is used \uDelta, which has been assigned the macro \texttt{uDelta}. For derivatives, the package \texttt{diffcoeff} provides a simpler notation than explicitly writing fractions.
+
+If you want to specify that something should be upright in the math mode, you have a few options.
+\begin{itemize}[leftmargin=10em]
+    \item[\texttt{symup} \(\symup{effigy}\)] Symbols from the mathematical upright alphabet. No spaces, no ligatures and specific spacing. Use for mathematical symbols that are upright letters (differentials, mathematical constants)
+    \item[\texttt{math*}] Uses math font and its variations without ligatures and spaces. Ideal for multiletter operators.
+    \item[\texttt{mathrm} \(\mathrm{effigy}\)]
+    \item[\texttt{mathup} \(\mathup{effigy}\)] Equivalent to mathrm
+    \item[\texttt{mathit} \(\mathit{effigy}\)]
+    \item[\texttt{mathbf} \(\mathbf{effigy}\)]
+    \item[\texttt{mathbfit} \(\mathbfit{effigy}\)]
+    \item[\texttt{mathsf} \(\mathsf{effigy}\)]
+    \item[\texttt{mathtt} \(\mathtt{effigy}\)]
+    \item[\texttt{mathtext*}] ``Old'' definitions of the math* commands that are not updated throughout  Use only for compatibility purposes.
+    \item[\texttt{mathtextrm} \(\mathtextrm{effigy}\)]
+    \item[\texttt{mathtextit} \(\mathtextit{effigy}\)]
+    \item[\texttt{mathtextbf} \(\mathtextbf{effigy}\)]
+    \item[\texttt{text} \(\text{effigy}\)] Gives the same result as text outside of the math mode (including the font, spaces and ligatures). Can also use \texttt{textrm, textbf, textit, textsf, texttt} just like outside of math mode.
+\end{itemize}
+See examples below.
+\[
+\sin x, \ln \uDelta H_\textrm{fus}^\std,\int \ud x, \ue^{\ui \upi}, \mat{A}^\transp, \diff{f(x)}{x}, \diff[3]{f}{x}[x=0], \diffp[3]{f(x,y)}{x}[y]
+\]
+Also note the standard state symbol $\circlehbar$, which has been assigned the \texttt{std} macro.
+
 
 \paragraph{Units and decimal numbers}For the formating of numerical values and units, the package \texttt{siunitx} is used. The main advantage is the ability to globally change the decimal separator between dot and comma, or the way units are typeset. This can be used e.g.\ in making of different language versions. Therefore, all decimal numbers and numbers with units should be typeset as follows:
 \begin{align*}
