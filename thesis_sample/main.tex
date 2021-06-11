@@ -1,0 +1,64 @@
+\documentclass[12pt,oneside]{book}
+\usepackage{natsci}
+\setdefaultlanguage[variant=british]{english}
+\setmainfont{Latin Modern Roman}[SmallCapsFont={Latin Modern Roman Caps}]
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
+\newfontfamily{\cjkfont}{Noto Serif CJK SC}
+\setTransitionsForCJK{\begingroup\cjkfont}{\endgroup}
+\setmathfont{Latin Modern Math}
+\geometry{a4paper}
+\geometry{inner=4cm}
+\geometry{outer=3cm}
+\geometry{top=25mm}
+\geometry{bottom=25mm}
+\graphicspath{ {figures/} }
+\pagestyle{fancy} % Make pages fancy
+\fancyhf{}
+\fancyhead[L]{\texttt{natsci} --- Sample document --- English}
+\fancyfoot[R]{\thepage}
+%*******************************************************************************
+% Changing footnotes to symbols to avoid confusion with superscript references
+%*******************************************************************************
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%*******************************************************************************
+% Setting paragraph indents and skips
+%*******************************************************************************
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{}
+\fancyhead[RE,LO]{\leftmark}
+%\fancyhead[RE,LO]{Section \thesection}
+%\fancyfoot[CE,CO]{\leftmark}
+%\fancyfoot[LE,RO]{\thepage}
+% E: Even page
+% O: Odd page
+% L: Left field
+% C: Center field
+% R: Right field
+% H: Header
+% F: Footer
+
+\usepackage[backend=biber,style=chem-rsc,doi=true,isbn=true]{biblatex}
+\addbibresource{bibtex/PhD-first-year_report.bib}
+\begin{document}
+\frontmatter
+\input{frontmatter/title_page}
+\input{frontmatter/acknowledgements}
+\input{frontmatter/abstract}
+\tableofcontents
+\mainmatter
+\onehalfspacing
+\input{chapters/ch1_introduction}
+
+\input{chapters/ch2_theory}
+
+\input{chapters/ch3_work}
+
+\input{chapters/ch4_conclusions}
+
+\backmatter
+\singlespacing
+\printbibliography
+\end{document}
