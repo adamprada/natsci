@@ -1,3 +1,4 @@
+% !TeX program = xelatex
 \documentclass[11pt]{article}
 \usepackage{natsci}
 %*******************************************************************************
@@ -339,7 +340,7 @@ If you want to have aligned multiple equations under one equation number, use \t
 
 
 \subsection{Footnotes}
-Footnotes are simple done like this.\footnote{My first footnote.} You can write the footnote text\footnotemark outside of the paragraph, if appropriate.
+Footnotes are simple done like this.\footnote{My first footnote.} You can write the footnote text\footnotemark{} outside of the paragraph, if appropriate.
 \footnotetext{My second footnote}
 
 
@@ -359,7 +360,7 @@ Matrix/tensor variables are typeset in bold sans-serif font. For these the comma
 \[
 \vc{c}^\transp \mat{H} \vc{c} = E
 \]
-\paragraph{Non-variables} All other objects, like operators, labels, abbreviations, function names or units, must be typed upright. This also applies to mathematical constants that are usually denoted by letters, like e (Euler's number), i (imaginary unit), \upi (circumference of a circle of a unit diameter). Basic functions, like trigs and logs have their own commands. For labels or phrases, \texttt{text} command is used. For differentials d, e, i and \upi, new commands were defined for their upright versions \texttt{ue, ud, ui, upi}. Similarly, the difference, the upright capital delta is used \uDelta, which has been assigned the macro \texttt{uDelta}. For derivatives, the package \texttt{diffcoeff} provides a simpler notation than explicitly writing fractions. See examples below.
+\paragraph{Non-variables} All other objects, like operators, labels, abbreviations, function names or units, must be typed upright. This also applies to mathematical constants that are usually denoted by letters, like $\ue$ (Euler's number), $\ui$ (imaginary unit), $\upi$ (circumference of a circle of a unit diameter). Basic functions, like trigs and logs have their own commands. For labels or phrases, \texttt{text} command is used. For differentials $\ud$, $\ue$, $\ui$ and $\upi$, new commands were defined for their upright versions \texttt{ue, ud, ui, upi}. Similarly, for a non-infinitesimal difference, the upright deltas are used $\uDelta$ and $\udelta$, which has been assigned the macro \texttt{uDelta} and \texttt{udelta}. For derivatives, the package \texttt{diffcoeff} provides a simpler notation than explicitly writing fractions. See examples below.
 \[
 \sin x, \ln \uDelta H_\text{fus}^\std,\int \ud x, \ue^{\ui \upi}, \mat{A}^\transp, \diff{f(x)}{x}, \diff[3]{f}{x}[x=0], \diffp[3]{f(x,y)}{x}[y]
 \]
