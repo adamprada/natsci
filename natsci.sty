@@ -8,7 +8,7 @@
 \ifxetex
     \RequirePackage{fontspec}
     %\defaultfontfeatures{Ligatures=TeX,Numbers=OldStyle,Contextuals=Alternate}
-    \defaultfontfeatures{Ligatures=TeX,Contextuals=Alternate}
+    \defaultfontfeatures{Ligatures=TeX,Numbers=Lining,Contextuals=Alternate}
     \RequirePackage{ucharclasses}
     \RequirePackage[babelshorthands]{polyglossia}
 \else
@@ -111,7 +111,7 @@
 % STEM LaTeX packages
 %*******************************************************************************
 \RequirePackage{siunitx}
-\RequirePackage{diffcoeff}
+\RequirePackage{diffcoeff}[=v4]
 \ifxetex
     \diffdef {}{
         op-symbol    = \symup{d},
