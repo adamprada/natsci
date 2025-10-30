@@ -194,19 +194,19 @@ Also note the standard state symbol $\circlehbar$, which has been assigned the \
 \begin{align*}
 &\num{12345,67890}                                 &
 &\num[output-decimal-marker = {,}]{12345.67890}    &
-&\num{1+-2i}                                       \\
+&\complexnum{1+-2i}                                       \\
 &\num{0.3e45}                                      &
 &\num[exponent-product = \ensuremath{{}\cdot{}}]{0.3e45}            &
-&\si{kJ.mol^{-1}}                                  \\
-&\SI{1525.3}{kJ.mol^{-1}}                          &
-&\SI{10}{\micro\metre}                             &
-&\SI{10}{\um}                                      \\
-&\SI{10}{\ul}                                      &
-&\SI{10}{\degreeCelsius}                           &
-&\SI{1525.3}{\kJ\per\mol}                          \\
-&\SI{15.3}{\joule\per\mole\per\kelvin}             &
-&\SI[inter-unit-product = \ensuremath{{}\cdot{}}]{15.3}{\J\mol^{-1}\K^{-1}} &
-&\SI{1525.3}{kJ.mol^{-1}}                          \\
+&\unit{kJ.mol^{-1}}                                  \\
+&\qty{1525.3}{kJ.mol^{-1}}                          &
+&\qty{10}{\micro\metre}                             &
+&\qty{10}{\um}                                      \\
+&\qty{10}{\ul}                                      &
+&\qty{10}{\degreeCelsius}                           &
+&\qty{1525.3}{\kJ\per\mol}                          \\
+&\qty{15.3}{\joule\per\mole\per\kelvin}             &
+&\qty[inter-unit-product = \ensuremath{{}\cdot{}}]{15.3}{\J\mol^{-1}\K^{-1}} &
+&\qty{1525.3}{kJ.mol^{-1}}                          \\
 &\ang{4,5}                                         &
 &\ang{1;2;3}                                       &
 \end{align*}
@@ -240,9 +240,13 @@ Alternatively, for full reactions, one can use the \texttt{reaction} and \texttt
     2 R-CHO -> R-COO^{-} + R-CH2-OH
 \end{reaction*}
 \begin{reaction*}
-    F2 + H2O \sld -> [ $\SI{-40}{\degreeCelsius}$ ] HF ($\mathbf{A}$) + HOF ($\mathbf{B}$)
+    F2 + H2O \sld -> [ $\qty{-40}{\degreeCelsius}$ ] HF ($\mathbf{A}$) + HOF ($\mathbf{B}$)
 \end{reaction*}
-However, the package can do much more, so feel free to explore
+Another useful macros are for the \Ka's.
+\[
+\Ka, \Ka[2], \pKa, \pKa[2]
+\]
+However, the package can do much more, e.g. Lewis formulae
 \begin{center}
     \begin{tabular}{cc} % I am not sure if this is the easiest way of doing this
         {\large

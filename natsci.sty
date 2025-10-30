@@ -128,3 +128,9 @@
 \chemsetup{modules=all}
 \chemsetup[particles]{elpair=dots}
 \chemsetup[redox]{pos=top}
+\renewcommand{\Ka}[1][]{
+    \ensuremath{K_{\mathrm{a}#1}}
+}
+\renewcommand{\Kb}[1][]{
+    \ensuremath{K_{\mathrm{b}#1}}
+}
